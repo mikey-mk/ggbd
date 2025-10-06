@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baseus 20W Dual Port Fast Charger | Gadget Galaxy BD</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #ffc82c;
+            --text-light: #f9fafb;
+            --text-dark: #1f2937;
+            --background: #f9fafb;
+            --gray: #e5e7eb;
+            --success: #10b981;
+            --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 20px rgba(0,0,0,0.1);
+            --radius: 12px;
+        }
+
+        * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; scroll-behavior:smooth;}
+        body {color:var(--text-dark); background-color:var(--background); line-height:1.7;}
+        .container {max-width:1100px; margin:0 auto; padding:0 20px;}
+
+        /* Header */
+        header {background-color:white; box-shadow:var(--shadow-sm); position:sticky; top:0; z-index:100; padding:15px 0;}
+        nav {display:flex; justify-content:space-between; align-items:center;}
+        .logo {display: flex; align-items: center; gap: 10px;}
+        .logo img {height:50px;}
+        .website-name {font-size: 24px; font-weight: 700; color: var(--primary);}
+
+        .btn {display:inline-block; background-color:var(--accent); color:var(--text-dark); padding:10px 25px; border-radius:50px; font-weight:600; text-decoration:none; transition:all 0.3s ease; border:none; cursor:pointer; box-shadow:var(--shadow-sm);}
+        .btn:hover {transform:translateY(-3px); box-shadow:0 8px 15px rgba(37,99,235,0.2);}
+        .btn-primary {background-color:var(--primary); color:white;}
+
+        /* Hero Section */
+        .hero-section {background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%); color:white; padding:60px 0; overflow:hidden; position:relative;}
+        .hero-content {display:flex; flex-wrap:wrap; align-items:center; gap:40px;}
+        .hero-text {flex:1; min-width:300px; animation:slideInLeft 0.8s ease-out;}
+        .hero-image-wrapper {flex:1; min-width:300px; text-align:center; animation:slideInRight 0.8s ease-out;}
+        .hero-image-wrapper img {max-width:100%; height:auto; max-height:350px; border-radius:var(--radius); transition: transform 0.4s ease-in-out; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));}
+        .hero-image-wrapper img:hover {transform:scale(1.05);}
+        .hero-text h1 {font-size:2.8rem; margin-bottom:15px; line-height:1.2; font-weight:700;}
+        .hero-text .subtitle {font-size:1.1rem; margin-bottom:25px; opacity:0.9; font-weight:300;}
+        .hero-text .price {font-size:2.5rem; font-weight:700; margin-bottom:30px; color:var(--accent);}
+        .urgency-badge {display:inline-flex; align-items:center; gap:8px; background-color:rgba(255,255,255,0.2); padding:8px 15px; border-radius:50px; font-size:0.9rem; margin-bottom:20px;}
+        .urgency-badge .icon {animation:pulse 2s infinite;}
+
+        /* Trust Indicators */
+        .trust-indicators {display:flex; flex-wrap:wrap; gap:20px; margin-top:30px;}
+        .trust-item {display:flex; align-items:center; gap:8px; font-size:0.9rem; opacity:0.9;}
+
+        /* Image Slider */
+        .image-slider {position:relative; max-width:500px; margin:0 auto; overflow:hidden; border-radius:var(--radius); box-shadow:var(--shadow-md);}
+        .slides {display:flex; transition:transform 0.5s ease-in-out;}
+        .slide {min-width:100%; border-radius:var(--radius);}
+        .slide img {width:100%; display:block; border-radius:var(--radius);}
+        .slider-nav {position:absolute; bottom:20px; left:0; right:0; display:flex; justify-content:center; gap:10px;}
+        .slider-dot {width:12px; height:12px; border-radius:50%; background-color:rgba(255,255,255,0.5); cursor:pointer; transition:background-color 0.3s ease;}
+        .slider-dot.active {background-color:white;}
+        .slider-btn {position:absolute; top:50%; transform:translateY(-50%); background-color:rgba(255,255,255,0.7); border:none; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all 0.3s ease; font-size:1.2rem; color:var(--text-dark);}
+        .slider-btn:hover {background-color:white;}
+        .prev {left:15px;}
+        .next {right:15px;}
+
+        /* Sections */
+        .section {padding:80px 0;}
+        .section-title {text-align:center; margin-bottom:50px; font-size:2.2rem; font-weight:600; color:var(--text-dark); position:relative;}
+        .section-title::after {content:''; display:block; width:70px; height:4px; background-color:var(--primary); border-radius:2px; margin:10px auto 0;}
+
+        .features-grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:30px;}
+        .feature-item {background-color:white; padding:30px; border-radius:var(--radius); box-shadow:var(--shadow-sm); transition:transform 0.3s ease, box-shadow 0.3s ease; text-align:center; position:relative;}
+        .feature-item:hover {transform:translateY(-8px); box-shadow:var(--shadow-md);}
+        .feature-icon {font-size:2.5rem; color:var(--primary); margin-bottom:20px; display:inline-block;}
+        .feature-title {font-size:1.3rem; margin-bottom:10px; font-weight:600;}
+        .feature-description {font-size:0.95rem; color:#6b7280;}
+
+        /* Why Choose Us Section */
+        .benefits-section {background-color:#ffffff; border-radius:var(--radius);}
+        .benefit-item {display:flex; align-items:flex-start; gap:20px; text-align:left; margin-bottom:25px;}
+        .benefit-item:last-child {margin-bottom:0;}
+        .benefit-icon {width:50px; height:50px; background-color:var(--primary); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem; flex-shrink:0;}
+        .benefit-item h3 {font-weight:600; margin-bottom:5px;}
+
+        /* Testimonials Section */
+        .testimonials-grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:30px;}
+        .testimonial-card {background-color:white; padding:30px; border-radius:var(--radius); box-shadow:var(--shadow-sm); border-left:5px solid var(--primary); position:relative;}
+        .testimonial-text {font-style:italic; margin-bottom:20px; position:relative; color:#4b5563;}
+        .testimonial-text::before {content:'"'; font-size:4rem; color:var(--gray); position:absolute; top:-25px; left:-15px; z-index:0; line-height:1;}
+        .testimonial-author {font-weight:600; text-align:right; color:var(--text-dark);}
+        .rating {color:var(--accent); text-align:right; margin-top:5px;}
+        .customer-avatar {width:50px; height:50px; border-radius:50%; background-color:var(--primary); color:white; display:flex; align-items:center; justify-content:center; font-weight:bold; position:absolute; top:-25px; left:30px;}
+
+        /* Order Form */
+        .order-form-container {background-color:white; padding:40px; border-radius:var(--radius); box-shadow:var(--shadow-md); max-width:600px; margin:0 auto; position:relative;}
+        .form-group {margin-bottom:20px;}
+        .form-group label {display:block; margin-bottom:8px; font-weight:500;}
+        input, textarea, select {width:100%; padding:12px 15px; border:1px solid var(--gray); border-radius:8px; font-size:1rem; transition:border-color 0.3s ease, box-shadow 0.3s ease;}
+        input:focus, textarea:focus, select:focus {outline:none; border-color:var(--primary); box-shadow:0 0 0 3px rgba(37,99,235,0.1);}
+        textarea {min-height:100px; resize:vertical;}
+        .success-message {display:none; background-color:var(--success); color:white; padding:20px; border-radius:8px; text-align:center; margin-top:20px; font-weight:500;}
+        .guarantee-badge {position:absolute; top:-15px; right:20px; background-color:var(--success); color:white; padding:8px 15px; border-radius:50px; font-size:0.9rem; font-weight:600; box-shadow:var(--shadow-sm);}
+
+        /* Warranty Terms */
+        .warranty-terms {background-color: #f8fafc; padding: 30px; border-radius: var(--radius); margin-top: 30px; border-left: 4px solid var(--primary);}
+        .warranty-title {font-size: 1.3rem; font-weight: 600; margin-bottom: 15px; color: var(--text-dark);}
+        .warranty-list {list-style-type: none; padding-left: 0;}
+        .warranty-list li {margin-bottom: 10px; padding-left: 25px; position: relative;}
+        .warranty-list li:before {content: "•"; color: var(--primary); font-weight: bold; position: absolute; left: 10px;}
+
+        /* FAQ Section */
+        .faq-container {max-width:800px; margin:0 auto;}
+        .faq-item {background-color:white; margin-bottom:15px; border-radius:var(--radius); box-shadow:var(--shadow-sm); overflow:hidden;}
+        .faq-question {padding:20px; font-weight:600; cursor:pointer; display:flex; justify-content:space-between; align-items:center;}
+        .faq-answer {padding:0 20px; max-height:0; overflow:hidden; transition:max-height 0.3s ease, padding 0.3s ease;}
+        .faq-item.active .faq-answer {padding:0 20px 20px; max-height:500px;}
+
+        /* Footer */
+        footer {background-color:var(--text-dark); color:var(--text-light); padding:50px 0 30px; text-align:center; margin-top:60px;}
+        .footer-logo {display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 15px;}
+        .footer-logo img {height:50px;}
+        .footer-website-name {font-size: 28px; font-weight: 700; color: white;}
+        footer p {max-width:400px; margin:0 auto 25px; opacity:0.8;}
+        .social-links {display:flex; justify-content:center; gap:25px; margin-bottom:30px;}
+        .social-link {color:white; text-decoration:none; font-size:1.8rem; transition:color 0.3s ease, transform 0.3s ease;}
+        .social-link:hover {color:var(--accent); transform:scale(1.2);}
+        .copyright {opacity:0.7; font-size:0.9rem;}
+
+        /* Animations */
+        @keyframes slideInLeft {0% {opacity:0; transform:translateX(-50px);} 100% {opacity:1; transform:translateX(0);}}
+        @keyframes slideInRight {0% {opacity:0; transform:translateX(50px);} 100% {opacity:1; transform:translateX(0);}}
+        @keyframes pulse {0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+
+        /* Responsive Design */
+        @media (max-width:768px) {
+            .hero-content {flex-direction:column-reverse; text-align:center;}
+            .hero-text h1 {font-size:2.2rem;}
+            .section {padding:60px 0;}
+            .order-form-container {padding:30px 20px;}
+            nav {flex-direction:column; gap:15px;}
+            .trust-indicators {justify-content:center;}
+            .slider-btn {width:35px; height:35px; font-size:1rem;}
+            .website-name {font-size: 20px;}
+            .footer-website-name {font-size: 24px;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <img src="https://i.ibb.co/4g3VTK7w/Generated-Image-October-06-2025-9-38-AM.png" alt="Gadget Galaxy BD">
+                <div class="website-name">Gadget Galaxy BD</div>
+            </div>
+            <a href="#order" class="btn btn-primary">Order Now</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="urgency-badge">
+                    <span class="icon"><i class="fas fa-bolt"></i></span>
+                    <span>Limited Time Offer! Order Today</span>
+                </div>
+                <p class="subtitle">Your Trusted Online Electronics Store</p>
+                <h1>Baseus 20W Dual Port Fast Charger</h1>
+                <p class="subtitle">Charge two devices simultaneously with high-speed 20W power delivery</p>
+                <div class="price">৳1300 <span style="font-size:1.2rem; text-decoration:line-through; opacity:0.7;">৳1600</span></div>
+                <a href="#order" class="btn btn-primary">Order Now</a>
+                
+                <div class="trust-indicators">
+                    <div class="trust-item">
+                        <span><i class="fas fa-shield-alt"></i></span>
+                        <span>6-Month Warranty</span>
+                    </div>
+                    <div class="trust-item">
+                        <span><i class="fas fa-truck"></i></span>
+                        <span>Free Delivery Across Bangladesh</span>
+                    </div>
+                    <div class="trust-item">
+                        <span><i class="fas fa-money-bill-wave"></i></span>
+                        <span>Cash on Delivery</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <div class="image-slider">
+                    <div class="slides">
+                        <div class="slide">
+                            <img src="https://i.ibb.co/JR9QJJGn/553577775-1295243888494835-5210140357215168708-n.jpg" alt="Baseus 20W Dual Port Fast Charger - Front View">
+                        </div>
+                        <div class="slide">
+                            <img src="https://i.ibb.co/VcfnjBnH/553556099-1508936753761993-2036763778495937519-n.jpg" alt="Baseus 20W Dual Port Fast Charger - Side View">
+                        </div>
+                        <div class="slide">
+                            <img src="https://i.ibb.co/JR9QJJGn/553577775-1295243888494835-5210140357215168708-n.jpg" alt="Baseus 20W Dual Port Fast Charger - Close Up">
+                        </div>
+                        <div class="slide">
+                            <img src="https://i.ibb.co/PzfsPNnz/554172583-774216228835342-3812849664956205959-n.jpg" alt="Baseus 20W Dual Port Fast Charger - Package">
+                        </div>
+                    </div>
+                    <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                    <div class="slider-nav">
+                        <div class="slider-dot active"></div>
+                        <div class="slider-dot"></div>
+                        <div class="slider-dot"></div>
+                        <div class="slider-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Key Features</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <h3 class="feature-title">20W High-Speed Charging</h3>
+                <p class="feature-description">Delivers rapid charging for smartphones, tablets, and other gadgets with optimized power output.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-plug"></i></div>
+                <h3 class="feature-title">Dual Port Design</h3>
+                <p class="feature-description">Includes one USB-A and one Type-C port for flexible charging options for multiple devices.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-microchip"></i></div>
+                <h3 class="feature-title">Smart Power Distribution</h3>
+                <p class="feature-description">Automatically adjusts output to protect your devices from overcharging or overheating.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-compress-alt"></i></div>
+                <h3 class="feature-title">Compact & Durable Build</h3>
+                <p class="feature-description">Sleek black finish with a sturdy design perfect for travel or home use.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3 class="feature-title">Universal Compatibility</h3>
+                <p class="feature-description">Works seamlessly with iPhone, Samsung, Xiaomi, and most other USB-powered devices.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-plug"></i></div>
+                <h3 class="feature-title">US Plug</h3>
+                <p class="feature-description">Ready to use with standard US wall sockets. Adapters available for Bangladesh sockets.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section benefits-section">
+    <div class="container">
+        <h2 class="section-title">Why Choose Gadget Galaxy BD?</h2>
+        <div style="max-width:800px; margin:0 auto;">
+            <div class="benefit-item">
+                <div class="benefit-icon"><i class="fas fa-truck"></i></div>
+                <div>
+                    <h3>Fast Delivery</h3>
+                    <p>Get your product within 2-3 days across Bangladesh through our reliable delivery network.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                <div>
+                    <h3>100% Genuine Products</h3>
+                    <p>We source products directly from manufacturers to ensure you get authentic products at the best price.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon"><i class="fas fa-headset"></i></div>
+                <div>
+                    <h3>24/7 Customer Support</h3>
+                    <p>Our customer care team is always ready to assist you with any questions or needs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="customer-avatar">R</div>
+                <p class="testimonial-text">The charger works perfectly with my iPhone and iPad simultaneously. Charges much faster than my original charger!</p>
+                <div class="testimonial-author">- Rashed Islam, Dhaka</div>
+                <div class="rating">★★★★★</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="customer-avatar">F</div>
+                <p class="testimonial-text">Excellent build quality and compact design. The dual port feature is a lifesaver when traveling with multiple devices.</p>
+                <div class="testimonial-author">- Faria Chowdhury, Chattogram</div>
+                <div class="rating">★★★★★</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="customer-avatar">S</div>
+                <p class="testimonial-text">Got faster delivery than expected. The charger works perfectly with my Samsung phone. Great value for money!</p>
+                <div class="testimonial-author">- Siam Ahmed, Khulna</div>
+                <div class="rating">★★★★☆</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Warranty Information</h2>
+        <div class="warranty-terms">
+            <h3 class="warranty-title">6-Month Warranty Terms & Conditions</h3>
+            <ul class="warranty-list">
+                <li>This product comes with a 6-month warranty from the date of purchase</li>
+                <li>Warranty covers manufacturing defects and performance issues</li>
+                <li>Warranty does not cover physical damage (drops, cracks, broken parts)</li>
+                <li>Warranty does not cover water damage or liquid exposure</li>
+                <li>Warranty does not cover damage caused by improper use or unauthorized modifications</li>
+                <li>Original proof of purchase is required for warranty claims</li>
+                <li>Warranty claims must be processed through Gadget Galaxy BD customer service</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How long does delivery take?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>In Dhaka city 1-2 days and in other divisional cities within 2-3 days. In rural areas it may take 3-5 days.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What are the payment options?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer Cash on Delivery service. You can pay after receiving the product. Advance payment is also available through bKash, Nagad, and Rocket.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How does the warranty work?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We provide a 6-month warranty that covers manufacturing defects. The warranty cannot be claimed if the product has any physical or water damage. Please refer to our warranty terms for complete details.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is this charger compatible with my device?</span>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, the Baseus 20W Dual Port Fast Charger is compatible with most USB-powered devices including iPhone, Samsung, Xiaomi, Huawei, and other smartphones and tablets.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="order" class="section">
+    <div class="container">
+        <h2 class="section-title">Confirm Your Order</h2>
+        <div class="order-form-container">
+            <div class="guarantee-badge">6-Month Warranty</div>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="Name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Mobile Number</label>
+                    <input type="tel" id="phone" name="Phone" required placeholder="Enter a valid mobile number">
+                </div>
+                <div class="form-group">
+                    <label for="address">Delivery Address</label>
+                    <textarea id="address" name="Address" required placeholder="House/Holding, Road, Area, District"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <select id="quantity" name="Quantity" required>
+                        <option value="1">1 Piece (৳1300)</option>
+                        <option value="2">2 Pieces (৳2500)</option>
+                        <option value="3">3 Pieces (৳3600)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%; padding:15px; font-size:1.1rem;">Place Order</button>
+            </form>
+            <div id="successMessage" class="success-message">
+               Your order has been successfully placed! We will contact you shortly to confirm your order.
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-logo">
+            <img src="https://i.ibb.co/4g3VTK7w/Generated-Image-October-06-2025-9-38-AM.png" alt="Gadget Galaxy BD">
+            <div class="footer-website-name">Gadget Galaxy BD</div>
+        </div>
+        <p>Your trusted destination for quality electronics at the best prices in Bangladesh.</p>
+        <div class="social-links">
+            <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank" class="social-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://facebook.com/YOUR_FACEBOOK_PAGE" target="_blank" class="social-link" title="Facebook"><i class="fab fa-facebook"></i></a>
+        </div>
+        <p class="copyright">© 2024 Gadget Galaxy BD | All Rights Reserved</p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const orderForm = document.getElementById('orderForm');
+        const successMessage = document.getElementById('successMessage');
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        // Image Slider Functionality
+        const slides = document.querySelector('.slides');
+        const slideCount = document.querySelectorAll('.slide').length;
+        const dots = document.querySelectorAll('.slider-dot');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        let currentSlide = 0;
+        
+        function goToSlide(slideIndex) {
+            if (slideIndex < 0) slideIndex = slideCount - 1;
+            if (slideIndex >= slideCount) slideIndex = 0;
+            
+            slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+            
+            // Update active dot
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[slideIndex].classList.add('active');
+            
+            currentSlide = slideIndex;
+        }
+        
+        // Auto slide every 5 seconds
+        let slideInterval = setInterval(() => {
+            goToSlide(currentSlide + 1);
+        }, 5000);
+        
+        // Reset interval when user interacts
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, 5000);
+        }
+        
+        // Event listeners for slider controls
+        prevBtn.addEventListener('click', () => {
+            goToSlide(currentSlide - 1);
+            resetInterval();
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            goToSlide(currentSlide + 1);
+            resetInterval();
+        });
+        
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+                resetInterval();
+            });
+        });
+        
+        // FAQ functionality
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        // Form submission to Google Sheets
+        orderForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic validation
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const quantity = document.getElementById('quantity').value;
+            
+            if (!name || !phone || !address) {
+                alert('Please fill in all information.');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = orderForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Processing...';
+            submitBtn.disabled = true;
+            
+            // Prepare data for Google Sheets
+            const formData = new FormData();
+            formData.append('Date', new Date().toLocaleDateString());
+            formData.append('Name', name);
+            formData.append('Number', phone);
+            formData.append('Address', address);
+            formData.append('Quantity', quantity);
+            
+            // Your Google Apps Script Web App URL
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwuVNWMKYbxoLLBOPa0zxaE5DBVO8VyA_kNTf3gf4SZ_N61vzZZLlECn91Vr0eu3GUB/exec';
+            
+            // Send to Google Sheets
+            fetch(scriptURL, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success - show success message
+                    orderForm.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    successMessage.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Reset form
+                    orderForm.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                alert('Sorry, there was a problem. Please try again.');
+                console.error('Form submission error:', error);
+            })
+            .finally(() => {
+                // Reset button state
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
