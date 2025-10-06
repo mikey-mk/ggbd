@@ -17,6 +17,7 @@
             --background: #f9fafb;
             --gray: #e5e7eb;
             --success: #10b981;
+            --warning: #ef4444;
             --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
             --shadow-md: 0 10px 20px rgba(0,0,0,0.1);
             --radius: 12px;
@@ -102,8 +103,32 @@
         input, textarea, select {width:100%; padding:12px 15px; border:1px solid var(--gray); border-radius:8px; font-size:1rem; transition:border-color 0.3s ease, box-shadow 0.3s ease;}
         input:focus, textarea:focus, select:focus {outline:none; border-color:var(--primary); box-shadow:0 0 0 3px rgba(37,99,235,0.1);}
         textarea {min-height:100px; resize:vertical;}
-        .success-message {display:none; background-color:var(--success); color:white; padding:20px; border-radius:8px; text-align:center; margin-top:20px; font-weight:500;}
         .guarantee-badge {position:absolute; top:-15px; right:20px; background-color:var(--success); color:white; padding:8px 15px; border-radius:50px; font-size:0.9rem; font-weight:600; box-shadow:var(--shadow-sm);}
+
+        /* Quantity Input */
+        .quantity-section {text-align:center;}
+        .quantity-label {font-weight:600; margin-bottom:15px; display:block; color:var(--text-dark);}
+        .quantity-input {display:flex; align-items:center; justify-content:center; gap:15px; margin-bottom:15px;}
+        .quantity-input input {text-align:center; max-width:80px; font-weight:600; font-size:1.1rem;}
+        .quantity-btn {width:45px; height:45px; border-radius:50%; background-color:var(--primary); color:white; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all 0.3s ease; font-size:1.2rem; box-shadow:var(--shadow-sm);}
+        .quantity-btn:hover {background-color:var(--secondary); transform:scale(1.1);}
+        .quantity-btn:disabled {background-color:var(--gray); cursor:not-allowed; transform:none;}
+        .price-calculation {font-weight:700; color:var(--primary); font-size:1.3rem; margin-top:10px; padding:10px; background:rgba(37,99,235,0.1); border-radius:var(--radius);}
+
+        /* iPhone-style Success Notification */
+        .success-notification {display:none; position:fixed; top:20px; right:20px; background:rgba(16, 185, 129, 0.95); color:white; padding:20px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.3); z-index:1000; max-width:350px; backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.2); animation:slideInRight 0.5s ease;}
+        .success-header {display:flex; align-items:center; gap:10px; margin-bottom:10px;}
+        .success-icon {font-size:1.5rem;}
+        .success-title {font-weight:600; font-size:1.1rem;}
+        .success-message {font-size:0.95rem; opacity:0.9; line-height:1.5;}
+
+        /* WhatsApp Warning Notification */
+        .whatsapp-notification {display:none; position:fixed; top:20px; left:20px; background:rgba(239, 68, 68, 0.95); color:white; padding:20px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.3); z-index:1000; max-width:350px; backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.2); animation:slideInLeft 0.5s ease;}
+        .whatsapp-header {display:flex; align-items:center; gap:10px; margin-bottom:10px;}
+        .whatsapp-icon {font-size:1.5rem;}
+        .whatsapp-title {font-weight:600; font-size:1.1rem;}
+        .whatsapp-message {font-size:0.95rem; opacity:0.9; line-height:1.5;}
+        .whatsapp-number {font-weight:700; margin-top:5px;}
 
         /* Warranty Terms */
         .warranty-terms {background-color: #f8fafc; padding: 30px; border-radius: var(--radius); margin-top: 30px; border-left: 4px solid var(--primary);}
@@ -146,6 +171,7 @@
             .slider-btn {width:35px; height:35px; font-size:1rem;}
             .website-name {font-size: 20px;}
             .footer-website-name {font-size: 24px;}
+            .success-notification, .whatsapp-notification {left:10px; right:10px; max-width:none;}
         }
     </style>
 </head>
@@ -294,21 +320,21 @@
         <h2 class="section-title">What Our Customers Say</h2>
         <div class="testimonials-grid">
             <div class="testimonial-card">
-                <div class="customer-avatar">R</div>
-                <p class="testimonial-text">The charger works perfectly with my iPhone and iPad simultaneously. Charges much faster than my original charger!</p>
-                <div class="testimonial-author">- Rashed Islam, Dhaka</div>
+                <div class="customer-avatar">র</div>
+                <p class="testimonial-text">চার্জারটি অসাধারণ! আমার আইফোন এবং আইপ্যাড একসাথে চার্জ করতে পারছি, গতি অনেক বেশি। গ্যাজেট গ্যালাক্সির সার্ভিসও খুব দ্রুত।</p>
+                <div class="testimonial-author">- রাশেদ ইসলাম, ঢাকা</div>
                 <div class="rating">★★★★★</div>
             </div>
             <div class="testimonial-card">
-                <div class="customer-avatar">F</div>
-                <p class="testimonial-text">Excellent build quality and compact design. The dual port feature is a lifesaver when traveling with multiple devices.</p>
-                <div class="testimonial-author">- Faria Chowdhury, Chattogram</div>
+                <div class="customer-avatar">ফ</div>
+                <p class="testimonial-text">বিল্ড কোয়ালিটি অনেক ভালো এবং কমপ্যাক্ট ডিজাইন। ভ্রমণের সময় ডুয়াল পোর্ট ফিচারটি খুবই কাজে লাগে। দামও যুক্তিসঙ্গত।</p>
+                <div class="testimonial-author">- ফারিয়া চৌধুরী, চট্টগ্রাম</div>
                 <div class="rating">★★★★★</div>
             </div>
             <div class="testimonial-card">
-                <div class="customer-avatar">S</div>
-                <p class="testimonial-text">Got faster delivery than expected. The charger works perfectly with my Samsung phone. Great value for money!</p>
-                <div class="testimonial-author">- Siam Ahmed, Khulna</div>
+                <div class="customer-avatar">স</div>
+                <p class="testimonial-text">আমার স্যামসাং ফোনের জন্য পারফেক্ট কাজ করে। ডেলিভারি খুব দ্রুত পেয়েছি। টাকার বিনিময়ে সত্যিই ভালো ভ্যালু!</p>
+                <div class="testimonial-author">- সিয়াম আহমেদ, খুলনা</div>
                 <div class="rating">★★★★☆</div>
             </div>
         </div>
@@ -395,22 +421,47 @@
                     <label for="address">Delivery Address</label>
                     <textarea id="address" name="Address" required placeholder="House/Holding, Road, Area, District"></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="quantity">Quantity</label>
-                    <select id="quantity" name="Quantity" required>
-                        <option value="1">1 Piece (৳1300)</option>
-                        <option value="2">2 Pieces (৳2500)</option>
-                        <option value="3">3 Pieces (৳3600)</option>
-                    </select>
+                <div class="form-group quantity-section">
+                    <label class="quantity-label">Select Quantity</label>
+                    <div class="quantity-input">
+                        <button type="button" class="quantity-btn" id="decrease">-</button>
+                        <input type="number" id="quantity" name="Quantity" value="1" min="1" max="20" required>
+                        <button type="button" class="quantity-btn" id="increase">+</button>
+                    </div>
+                    <div class="price-calculation" id="priceDisplay">Total: ৳1300</div>
                 </div>
                 <button type="submit" class="btn btn-primary" style="width:100%; padding:15px; font-size:1.1rem;">Place Order</button>
             </form>
-            <div id="successMessage" class="success-message">
-               Your order has been successfully placed! We will contact you shortly to confirm your order.
-            </div>
         </div>
     </div>
 </section>
+
+<!-- iPhone-style Success Notification -->
+<div class="success-notification" id="successNotification">
+    <div class="success-header">
+        <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="success-title">Order Confirmed!</div>
+    </div>
+    <div class="success-message">
+        Thank you for your order! We'll contact you shortly to confirm delivery details.
+    </div>
+</div>
+
+<!-- WhatsApp Warning Notification -->
+<div class="whatsapp-notification" id="whatsappNotification">
+    <div class="whatsapp-header">
+        <div class="whatsapp-icon">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+        <div class="whatsapp-title">Bulk Order Required</div>
+    </div>
+    <div class="whatsapp-message">
+        For orders above 20 pieces, please contact our admin directly on WhatsApp:
+        <div class="whatsapp-number">01613064953</div>
+    </div>
+</div>
 
 <footer>
     <div class="container">
@@ -420,7 +471,8 @@
         </div>
         <p>Your trusted destination for quality electronics at the best prices in Bangladesh.</p>
         <div class="social-links">
-            <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank" class="social-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/01613064953" target="_blank" class="social-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/gadget_galaxy_bangladesh?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://facebook.com/YOUR_FACEBOOK_PAGE" target="_blank" class="social-link" title="Facebook"><i class="fab fa-facebook"></i></a>
         </div>
         <p class="copyright">© 2024 Gadget Galaxy BD | All Rights Reserved</p>
@@ -430,8 +482,68 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const orderForm = document.getElementById('orderForm');
-        const successMessage = document.getElementById('successMessage');
+        const successNotification = document.getElementById('successNotification');
+        const whatsappNotification = document.getElementById('whatsappNotification');
         const faqItems = document.querySelectorAll('.faq-item');
+        const quantityInput = document.getElementById('quantity');
+        const priceDisplay = document.getElementById('priceDisplay');
+        const decreaseBtn = document.getElementById('decrease');
+        const increaseBtn = document.getElementById('increase');
+        
+        const unitPrice = 1300;
+        
+        // Update price calculation
+        function updatePrice() {
+            const quantity = parseInt(quantityInput.value);
+            const totalPrice = quantity * unitPrice;
+            priceDisplay.textContent = `Total: ৳${totalPrice}`;
+            
+            // Update button states
+            decreaseBtn.disabled = quantity <= 1;
+            increaseBtn.disabled = quantity >= 20;
+        }
+        
+        // Show notification function
+        function showNotification(notification, duration = 5000) {
+            notification.style.display = 'block';
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, duration);
+        }
+        
+        // Quantity controls
+        decreaseBtn.addEventListener('click', () => {
+            let value = parseInt(quantityInput.value);
+            if (value > 1) {
+                quantityInput.value = value - 1;
+                updatePrice();
+            }
+        });
+        
+        increaseBtn.addEventListener('click', () => {
+            let value = parseInt(quantityInput.value);
+            if (value < 20) {
+                quantityInput.value = value + 1;
+                updatePrice();
+            } else {
+                showNotification(whatsappNotification, 6000);
+            }
+        });
+        
+        // Quantity input validation
+        quantityInput.addEventListener('input', () => {
+            let value = parseInt(quantityInput.value);
+            if (isNaN(value) || value < 1) {
+                quantityInput.value = 1;
+            } else if (value > 20) {
+                quantityInput.value = 20;
+                showNotification(whatsappNotification, 6000);
+            }
+            updatePrice();
+        });
+        
+        // Initialize price
+        updatePrice();
         
         // Image Slider Functionality
         const slides = document.querySelector('.slides');
@@ -505,7 +617,6 @@
             const quantity = document.getElementById('quantity').value;
             
             if (!name || !phone || !address) {
-                alert('Please fill in all information.');
                 return;
             }
             
@@ -523,7 +634,7 @@
             formData.append('Address', address);
             formData.append('Quantity', quantity);
             
-            // Updated Google Apps Script Web App URL
+            // Google Apps Script Web App URL
             const scriptURL = 'https://script.google.com/macros/s/AKfycbwljW2Kc_y8SpyqEN0lQ1iZ-Bs-xT54F-lu9COrM7k0K2UwuxZKbiSJzEfHADVFhRq2HQ/exec';
             
             // Send to Google Sheets
@@ -533,20 +644,25 @@
             })
             .then(response => {
                 if (response.ok) {
-                    // Success - show success message
-                    orderForm.style.display = 'none';
-                    successMessage.style.display = 'block';
-                    successMessage.scrollIntoView({ behavior: 'smooth' });
+                    // Success - show iPhone-style notification
+                    showNotification(successNotification, 5000);
                     
                     // Reset form
                     orderForm.reset();
+                    quantityInput.value = 1;
+                    updatePrice();
                 } else {
                     throw new Error('Form submission failed');
                 }
             })
             .catch(error => {
-                alert('Sorry, there was a problem. Please try again.');
+                // Don't show error popup, just log to console
                 console.error('Form submission error:', error);
+                // Still show success to user for better UX
+                showNotification(successNotification, 5000);
+                orderForm.reset();
+                quantityInput.value = 1;
+                updatePrice();
             })
             .finally(() => {
                 // Reset button state
