@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baseus 20W Dual Port Fast Charger | Gadget Galaxy BD</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -21,6 +22,7 @@
             --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
             --shadow-md: 0 10px 20px rgba(0,0,0,0.1);
             --radius: 12px;
+            --transition: all 0.3s ease;
         }
 
         * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; scroll-behavior:smooth;}
@@ -70,7 +72,7 @@
 
         /* Sections */
         .section {padding:80px 0;}
-        .section-title {text-align:center; margin-bottom:50px; font-size:2.2rem; font-weight:600; color:var(--text-dark); position:relative;}
+        .section-title {text-align:center; margin-bottom:50px; font-size:2.2rem; font-weight:600; color:var(--text-dark); position:relative; font-family: 'Poppins', sans-serif;}
         .section-title::after {content:''; display:block; width:70px; height:4px; background-color:var(--primary); border-radius:2px; margin:10px auto 0;}
 
         .features-grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:30px;}
@@ -95,40 +97,6 @@
         .testimonial-author {font-weight:600; text-align:right; color:var(--text-dark);}
         .rating {color:var(--accent); text-align:right; margin-top:5px;}
         .customer-avatar {width:50px; height:50px; border-radius:50%; background-color:var(--primary); color:white; display:flex; align-items:center; justify-content:center; font-weight:bold; position:absolute; top:-25px; left:30px;}
-
-        /* Order Form */
-        .order-form-container {background-color:white; padding:40px; border-radius:var(--radius); box-shadow:var(--shadow-md); max-width:600px; margin:0 auto; position:relative;}
-        .form-group {margin-bottom:20px;}
-        .form-group label {display:block; margin-bottom:8px; font-weight:500;}
-        input, textarea, select {width:100%; padding:12px 15px; border:1px solid var(--gray); border-radius:8px; font-size:1rem; transition:border-color 0.3s ease, box-shadow 0.3s ease;}
-        input:focus, textarea:focus, select:focus {outline:none; border-color:var(--primary); box-shadow:0 0 0 3px rgba(37,99,235,0.1);}
-        textarea {min-height:100px; resize:vertical;}
-        .guarantee-badge {position:absolute; top:-15px; right:20px; background-color:var(--success); color:white; padding:8px 15px; border-radius:50px; font-size:0.9rem; font-weight:600; box-shadow:var(--shadow-sm);}
-
-        /* Quantity Input */
-        .quantity-section {text-align:center;}
-        .quantity-label {font-weight:600; margin-bottom:15px; display:block; color:var(--text-dark);}
-        .quantity-input {display:flex; align-items:center; justify-content:center; gap:15px; margin-bottom:15px;}
-        .quantity-input input {text-align:center; max-width:80px; font-weight:600; font-size:1.1rem;}
-        .quantity-btn {width:45px; height:45px; border-radius:50%; background-color:var(--primary); color:white; border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all 0.3s ease; font-size:1.2rem; box-shadow:var(--shadow-sm);}
-        .quantity-btn:hover {background-color:var(--secondary); transform:scale(1.1);}
-        .quantity-btn:disabled {background-color:var(--gray); cursor:not-allowed; transform:none;}
-        .price-calculation {font-weight:700; color:var(--primary); font-size:1.3rem; margin-top:10px; padding:10px; background:rgba(37,99,235,0.1); border-radius:var(--radius);}
-
-        /* iPhone-style Success Notification */
-        .success-notification {display:none; position:fixed; top:20px; right:20px; background:rgba(16, 185, 129, 0.95); color:white; padding:20px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.3); z-index:1000; max-width:350px; backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.2); animation:slideInRight 0.5s ease;}
-        .success-header {display:flex; align-items:center; gap:10px; margin-bottom:10px;}
-        .success-icon {font-size:1.5rem;}
-        .success-title {font-weight:600; font-size:1.1rem;}
-        .success-message {font-size:0.95rem; opacity:0.9; line-height:1.5;}
-
-        /* WhatsApp Warning Notification */
-        .whatsapp-notification {display:none; position:fixed; top:20px; left:20px; background:rgba(239, 68, 68, 0.95); color:white; padding:20px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.3); z-index:1000; max-width:350px; backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,0.2); animation:slideInLeft 0.5s ease;}
-        .whatsapp-header {display:flex; align-items:center; gap:10px; margin-bottom:10px;}
-        .whatsapp-icon {font-size:1.5rem;}
-        .whatsapp-title {font-weight:600; font-size:1.1rem;}
-        .whatsapp-message {font-size:0.95rem; opacity:0.9; line-height:1.5;}
-        .whatsapp-number {font-weight:700; margin-top:5px;}
 
         /* Warranty Terms */
         .warranty-terms {background-color: #f8fafc; padding: 30px; border-radius: var(--radius); margin-top: 30px; border-left: 4px solid var(--primary);}
@@ -159,19 +127,87 @@
         @keyframes slideInLeft {0% {opacity:0; transform:translateX(-50px);} 100% {opacity:1; transform:translateX(0);}}
         @keyframes slideInRight {0% {opacity:0; transform:translateX(50px);} 100% {opacity:1; transform:translateX(0);}}
         @keyframes pulse {0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+        @keyframes fadeIn { from {opacity: 0; transform: translateY(5px);} to {opacity: 1; transform: translateY(0);} }
+        @keyframes popupFade { from {opacity: 0; transform: scale(0.95);} to {opacity: 1; transform: scale(1);} }
 
         /* Responsive Design */
         @media (max-width:768px) {
             .hero-content {flex-direction:column-reverse; text-align:center;}
             .hero-text h1 {font-size:2.2rem;}
             .section {padding:60px 0;}
-            .order-form-container {padding:30px 20px;}
             nav {flex-direction:column; gap:15px;}
             .trust-indicators {justify-content:center;}
             .slider-btn {width:35px; height:35px; font-size:1rem;}
             .website-name {font-size: 20px;}
             .footer-website-name {font-size: 24px;}
-            .success-notification, .whatsapp-notification {left:10px; right:10px; max-width:none;}
+        }
+
+        /* NEW ORDER FORM STYLES */
+        #order-section { font-family: 'Hind Siliguri', sans-serif; }
+        #order-section .section-title { font-family: 'Hind Siliguri', sans-serif; font-size: 2rem; font-weight: 700; }
+        .order-container { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .order-box { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 30px; transition: var(--transition); }
+        .order-box:hover { transform: translateY(-3px); }
+        .order-title { text-align: center; font-size: 1.4rem; font-weight: 600; color: var(--primary); margin-bottom: 20px; font-family: 'Hind Siliguri', sans-serif;}
+
+        /* Quantity Selector */
+        .quantity-box { display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 20px; }
+        .quantity-box button { width: 35px; height: 35px; border: none; background: var(--primary); color: #fff; font-size: 1.2rem; border-radius: var(--radius); cursor: pointer; transition: var(--transition); }
+        .quantity-box button:hover { background: var(--secondary); }
+        .quantity-box input { width: 60px; text-align: center; padding: 5px; border-radius: var(--radius); border: 1px solid #ccc; font-size: 1rem; }
+
+        /* Payment options */
+        .payment-options { display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center; }
+        .payment-option { flex: 1; min-width: 140px; text-align: center; border: 2px solid #ddd; border-radius: var(--radius); padding: 15px; cursor: pointer; transition: var(--transition); background: #fff; }
+        .payment-option:hover { border-color: var(--primary); }
+        .payment-option.active { border-color: var(--primary); background: rgba(37, 99, 235, 0.05); }
+        .payment-icon img { width: 40px; margin-bottom: 8px; }
+        .payment-name { font-weight: 600; color: var(--text-dark); }
+
+        /* Payment details */
+        .payment-details { display: none; margin-top: 10px; background: #f9fafb; border-radius: var(--radius); padding: 15px; border: 1px solid #eee; }
+        .payment-details.active { display: block; animation: fadeIn 0.3s ease; }
+
+        .bikash-box { text-align: center; }
+        .bikash-box img { width: 60px; margin-bottom: 10px; }
+        .bikash-number { background: #fff; border: 1px solid #ddd; border-radius: var(--radius); padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; margin: 10px 0; }
+        .bikash-number span { font-weight: 700; color: var(--primary); }
+        .copy-btn { background: var(--primary); color: #fff; border: none; border-radius: 5px; padding: 6px 12px; cursor: pointer; transition: var(--transition); font-weight: 600; }
+        .copy-btn:hover { background: var(--secondary); }
+
+        /* Form styling */
+        .order-form input { width: 100%; padding: 12px; border-radius: var(--radius); border: 1px solid #ccc; margin-bottom: 12px; font-size: 1rem; transition: var(--transition); }
+        .order-form input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15); outline: none; }
+
+        .file-upload-wrapper { border: 1px dashed #ccc; border-radius: var(--radius); text-align: center; padding: 15px; color: #666; margin-bottom: 15px; position: relative; cursor: pointer; transition: var(--transition); }
+        .file-upload-wrapper:hover { border-color: var(--primary); color: var(--primary); }
+        .file-upload-wrapper input[type="file"] { position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+
+        .confirm-order-btn { background: var(--primary); color: #fff; border: none; border-radius: var(--radius); width: 100%; padding: 14px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: var(--transition); }
+        .confirm-order-btn:hover { background: var(--secondary); }
+
+        /* Popup */
+        .popup-overlay { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center; z-index: 1000; }
+        .popup-box { background: #fff; border-radius: var(--radius); padding: 30px 25px; max-width: 400px; text-align: center; box-shadow: var(--shadow-md); animation: popupFade 0.4s ease; }
+        .popup-icon { font-size: 3rem; color: var(--primary); margin-bottom: 10px; }
+        .close-btn { background: none; border: none; position: absolute; top: 15px; right: 20px; font-size: 1.2rem; cursor: pointer; color: #555; }
+        .close-btn:hover { color: var(--primary); }
+        
+        /* Loading spinner */
+        .loading-spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            margin: 10px auto;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -403,65 +439,88 @@
     </div>
 </section>
 
+<!-- NEW ORDER FORM SECTION -->
 <section id="order" class="section">
     <div class="container">
-        <h2 class="section-title">Confirm Your Order</h2>
-        <div class="order-form-container">
-            <div class="guarantee-badge">6-Month Warranty</div>
-            <form id="orderForm">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="Name" required placeholder="Enter your full name">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Mobile Number</label>
-                    <input type="tel" id="phone" name="Phone" required placeholder="Enter a valid mobile number">
-                </div>
-                <div class="form-group">
-                    <label for="address">Delivery Address</label>
-                    <textarea id="address" name="Address" required placeholder="House/Holding, Road, Area, District"></textarea>
-                </div>
-                <div class="form-group quantity-section">
-                    <label class="quantity-label">Select Quantity</label>
-                    <div class="quantity-input">
-                        <button type="button" class="quantity-btn" id="decrease">-</button>
-                        <input type="number" id="quantity" name="Quantity" value="1" min="1" max="20" required>
-                        <button type="button" class="quantity-btn" id="increase">+</button>
+        <div id="order-section">
+            <h2 class="section-title">আপনার অর্ডার সম্পন্ন করুন</h2>
+            <div class="order-container">
+
+                <!-- Product & Quantity -->
+                <div class="order-box">
+                    <h3 class="order-title">পণ্য ও পরিমাণ</h3>
+                    <p style="text-align:center; font-weight:600; margin-bottom:15px;">Baseus 20W Dual Port Fast Charger</p>
+                    <div class="quantity-box">
+                        <button type="button" onclick="changeQuantity(-1)">-</button>
+                        <input type="number" id="quantity" value="1" min="1" oninput="updatePrice()">
+                        <button type="button" onclick="changeQuantity(1)">+</button>
                     </div>
-                    <div class="price-calculation" id="priceDisplay">Total: ৳1300</div>
+                    <p style="text-align:center; font-weight:600;">মূল্য: <span id="price">৳1300</span></p>
                 </div>
-                <button type="submit" class="btn btn-primary" style="width:100%; padding:15px; font-size:1.1rem;">Place Order</button>
-            </form>
+
+                <!-- Payment Box -->
+                <div class="order-box">
+                    <h3 class="order-title">পেমেন্ট অপশন</h3>
+                    <div class="payment-options">
+                        <div class="payment-option active" data-payment="cod">
+                            <div class="payment-icon"><img src="https://cdn-icons-png.flaticon.com/512/270/270022.png" alt="COD"></div>
+                            <div class="payment-name">ক্যাশ অন ডেলিভারি</div>
+                        </div>
+                        <div class="payment-option" data-payment="bikash">
+                            <div class="payment-icon"><img src="https://i.ibb.co/gkJQRvs/images.png" alt="bKash"></div>
+                            <div class="payment-name">bKash</div>
+                        </div>
+                    </div>
+                    <div class="payment-details active" id="cod-details">
+                        <p>আপনার অর্ডার কনফার্ম করার পর ডেলিভারি ম্যান আপনার পণ্য নিয়ে আসবেন এবং তখন আপনি ক্যাশে পেমেন্ট করতে পারবেন।</p>
+                    </div>
+                    <div class="payment-details" id="bikash-details">
+                        <div class="bikash-box">
+                            <img src="https://i.ibb.co/gkJQRvs/images.png" alt="bKash Logo">
+                            <p>আপনার পেমেন্ট সম্পন্ন করতে নিচের বিকাশ নাম্বারে 'Send Money' করুন:</p>
+                            <div class="bikash-number">
+                                <span id="bkash-number">01771794844</span>
+                                <button class="copy-btn" onclick="copyBkashNumber()">কপি করুন</button>
+                            </div>
+                            <p style="font-size:0.9rem; color:#777;">টাকা পাঠানোর পর নিচের ফর্মে আপনার লেনদেনের তথ্য দিন।</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delivery Info -->
+                <div class="order-box">
+                    <h3 class="order-title">ডেলিভারি তথ্য দিন</h3>
+                    <form id="orderFormNew" class="order-form">
+                        <input type="text" id="customer-name" placeholder="আপনার সম্পূর্ণ নাম" required>
+                        <input type="tel" id="customer-phone" placeholder="ফোন নম্বর (১১ ডিজিট)" pattern="[0-9]{11}" required>
+                        <input type="text" id="customer-address" placeholder="আপনার পূর্ণ ঠিকানা" required>
+
+                        <!-- Only show Bkash fields if bKash is selected -->
+                        <div id="bikash-fields" style="display:none;">
+                            <input type="text" id="bkash-number-input" placeholder="বিকাশ নম্বর (ঐচ্ছিক)">
+                            <input type="text" id="transaction-id" placeholder="ট্রানজেকশন আইডি" required>
+                        </div>
+
+                        <div class="loading-spinner" id="loading-spinner"></div>
+                        <button type="submit" class="confirm-order-btn" id="submit-btn">✅ অর্ডার কনফার্ম করুন</button>
+                    </form>
+                </div>
+
+            </div>
         </div>
     </div>
 </section>
 
-<!-- iPhone-style Success Notification -->
-<div class="success-notification" id="successNotification">
-    <div class="success-header">
-        <div class="success-icon">
-            <i class="fas fa-check-circle"></i>
-        </div>
-        <div class="success-title">Order Confirmed!</div>
-    </div>
-    <div class="success-message">
-        Thank you for your order! We'll contact you shortly to confirm delivery details.
+<!-- Popup -->
+<div class="popup-overlay" id="thankYouPopup">
+    <div class="popup-box">
+        <div class="popup-icon">🎉</div>
+        <h3>ধন্যবাদ!</h3>
+        <p>আপনার অর্ডার সফলভাবে গ্রহণ করা হয়েছে। আমরা শীঘ্রই আপনার সাথে যোগাযোগ করবো।</p>
+        <button class="confirm-order-btn" onclick="closePopup()">ঠিক আছে</button>
     </div>
 </div>
 
-<!-- WhatsApp Warning Notification -->
-<div class="whatsapp-notification" id="whatsappNotification">
-    <div class="whatsapp-header">
-        <div class="whatsapp-icon">
-            <i class="fab fa-whatsapp"></i>
-        </div>
-        <div class="whatsapp-title">Bulk Order Required</div>
-    </div>
-    <div class="whatsapp-message">
-        For orders above 20 pieces, please contact our admin directly on WhatsApp:
-        <div class="whatsapp-number">01613064953</div>
-    </div>
-</div>
 
 <footer>
     <div class="container">
@@ -481,69 +540,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const orderForm = document.getElementById('orderForm');
-        const successNotification = document.getElementById('successNotification');
-        const whatsappNotification = document.getElementById('whatsappNotification');
         const faqItems = document.querySelectorAll('.faq-item');
-        const quantityInput = document.getElementById('quantity');
-        const priceDisplay = document.getElementById('priceDisplay');
-        const decreaseBtn = document.getElementById('decrease');
-        const increaseBtn = document.getElementById('increase');
-        
-        const unitPrice = 1300;
-        
-        // Update price calculation
-        function updatePrice() {
-            const quantity = parseInt(quantityInput.value);
-            const totalPrice = quantity * unitPrice;
-            priceDisplay.textContent = `Total: ৳${totalPrice}`;
-            
-            // Update button states
-            decreaseBtn.disabled = quantity <= 1;
-            increaseBtn.disabled = quantity >= 20;
-        }
-        
-        // Show notification function
-        function showNotification(notification, duration = 5000) {
-            notification.style.display = 'block';
-            setTimeout(() => {
-                notification.style.display = 'none';
-            }, duration);
-        }
-        
-        // Quantity controls
-        decreaseBtn.addEventListener('click', () => {
-            let value = parseInt(quantityInput.value);
-            if (value > 1) {
-                quantityInput.value = value - 1;
-                updatePrice();
-            }
-        });
-        
-        increaseBtn.addEventListener('click', () => {
-            let value = parseInt(quantityInput.value);
-            if (value < 20) {
-                quantityInput.value = value + 1;
-                updatePrice();
-            } else {
-                showNotification(whatsappNotification, 6000);
-            }
-        });
-        
-        // Quantity input validation
-        quantityInput.addEventListener('input', () => {
-            let value = parseInt(quantityInput.value);
-            if (isNaN(value) || value < 1) {
-                quantityInput.value = 1;
-            } else if (value > 20) {
-                quantityInput.value = 20;
-                showNotification(whatsappNotification, 6000);
-            }
-            updatePrice();
-        });
-        
-        // Initialize price
-        updatePrice();
         
         // Image Slider Functionality
         const slides = document.querySelector('.slides');
@@ -559,19 +556,16 @@
             
             slides.style.transform = `translateX(-${slideIndex * 100}%)`;
             
-            // Update active dot
             dots.forEach(dot => dot.classList.remove('active'));
             dots[slideIndex].classList.add('active');
             
             currentSlide = slideIndex;
         }
         
-        // Auto slide every 5 seconds
         let slideInterval = setInterval(() => {
             goToSlide(currentSlide + 1);
         }, 5000);
         
-        // Reset interval when user interacts
         function resetInterval() {
             clearInterval(slideInterval);
             slideInterval = setInterval(() => {
@@ -579,7 +573,6 @@
             }, 5000);
         }
         
-        // Event listeners for slider controls
         prevBtn.addEventListener('click', () => {
             goToSlide(currentSlide - 1);
             resetInterval();
@@ -590,7 +583,6 @@
             resetInterval();
         });
         
-        // Dot navigation
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 goToSlide(index);
@@ -606,71 +598,147 @@
             });
         });
 
-        // Form submission to Google Sheets
-        orderForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Basic validation
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const address = document.getElementById('address').value;
-            const quantity = document.getElementById('quantity').value;
-            
-            if (!name || !phone || !address) {
-                return;
+    });
+
+    // NEW ORDER FORM SCRIPT
+    const paymentOptions = document.querySelectorAll('.payment-option');
+    const codDetails = document.getElementById('cod-details');
+    const bkashDetails = document.getElementById('bikash-details');
+    const bikashFields = document.getElementById('bikash-fields');
+    const transactionId = document.getElementById('transaction-id');
+    const bkashNumberInput = document.getElementById('bkash-number-input');
+    const priceEl = document.getElementById('price');
+    const quantityInput = document.getElementById('quantity');
+    const unitPrice = 1300; // price per product
+
+    paymentOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            paymentOptions.forEach(o => o.classList.remove('active'));
+            option.classList.add('active');
+            if (option.dataset.payment === 'bikash') {
+                codDetails.classList.remove('active');
+                bkashDetails.classList.add('active');
+                bikashFields.style.display = 'block';
+                transactionId.required = true;
+            } else {
+                codDetails.classList.add('active');
+                bkashDetails.classList.remove('active');
+                bikashFields.style.display = 'none';
+                transactionId.required = false;
+                bkashNumberInput.required = false;
             }
-            
-            // Show loading state
-            const submitBtn = orderForm.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Processing...';
-            submitBtn.disabled = true;
-            
-            // Prepare data for Google Sheets
-            const formData = new FormData();
-            formData.append('Date', new Date().toLocaleDateString());
-            formData.append('Name', name);
-            formData.append('Number', phone);
-            formData.append('Address', address);
-            formData.append('Quantity', quantity);
-            
-            // Google Apps Script Web App URL
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbwljW2Kc_y8SpyqEN0lQ1iZ-Bs-xT54F-lu9COrM7k0K2UwuxZKbiSJzEfHADVFhRq2HQ/exec';
-            
-            // Send to Google Sheets
-            fetch(scriptURL, {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Success - show iPhone-style notification
-                    showNotification(successNotification, 5000);
-                    
-                    // Reset form
-                    orderForm.reset();
-                    quantityInput.value = 1;
-                    updatePrice();
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            })
-            .catch(error => {
-                // Don't show error popup, just log to console
-                console.error('Form submission error:', error);
-                // Still show success to user for better UX
-                showNotification(successNotification, 5000);
-                orderForm.reset();
-                quantityInput.value = 1;
-                updatePrice();
-            })
-            .finally(() => {
-                // Reset button state
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            });
         });
     });
+
+    function copyBkashNumber() {
+        const number = document.getElementById('bkash-number').innerText;
+        navigator.clipboard.writeText(number);
+        const btn = document.querySelector('.copy-btn');
+        btn.textContent = 'কপি হয়েছে!';
+        setTimeout(() => (btn.textContent = 'কপি করুন'), 2000);
+    }
+
+    function changeQuantity(val) {
+        let current = parseInt(quantityInput.value);
+        current += val;
+        if (current < 1) current = 1;
+        quantityInput.value = current;
+        updatePrice();
+    }
+
+    function updatePrice() {
+        const qty = parseInt(quantityInput.value) || 1;
+        priceEl.textContent = `৳${unitPrice * qty}`;
+    }
+
+    const form = document.getElementById('orderFormNew');
+    const popup = document.getElementById('thankYouPopup');
+    const loadingSpinner = document.getElementById('loading-spinner');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Show loading spinner
+        loadingSpinner.style.display = 'block';
+        submitBtn.disabled = true;
+        
+        // Get form data
+        const name = document.getElementById('customer-name').value;
+        const phone = document.getElementById('customer-phone').value;
+        const address = document.getElementById('customer-address').value;
+        const quantity = parseInt(quantityInput.value);
+        const price = unitPrice * quantity;
+        const paymentMethod = document.querySelector('.payment-option.active').dataset.payment;
+        const bkashNumber = paymentMethod === 'bikash' ? document.getElementById('bkash-number-input').value : 'N/A';
+        const transactionIdValue = paymentMethod === 'bikash' ? document.getElementById('transaction-id').value : 'N/A';
+        
+        // Get current date
+        const now = new Date();
+        const date = now.toLocaleDateString('en-GB');
+        
+        // Prepare data for Google Sheets (matching your sheet columns)
+        const formData = {
+            name: name,
+            phoneNumber: phone,
+            address: address,
+            quantity: quantity,
+            bkashNumber: bkashNumber,
+            transactionId: transactionIdValue,
+            price: price
+        };
+        
+        try {
+            // Send data to Google Sheets using Google Apps Script
+            await submitToGoogleSheets(formData);
+            
+            // Show success popup
+            popup.style.display = 'flex';
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            alert('দুঃখিত, আপনার অর্ডার জমা দেওয়ার সময় একটি সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
+        } finally {
+            // Hide loading spinner
+            loadingSpinner.style.display = 'none';
+            submitBtn.disabled = false;
+        }
+    });
+
+    // Function to submit data to Google Sheets
+    async function submitToGoogleSheets(data) {
+        // Updated with your Google Apps Script Web App URL
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxNSWA4hMiADdYjZBEJcIptNHysX1cWVzXqgX2mi2xwWdWv2_hoH9EZhyG4z2RQ-K-HmQ/exec';
+        
+        const response = await fetch(scriptURL, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        
+        return response.json();
+    }
+
+    function closePopup() {
+        popup.style.display = 'none';
+        form.reset();
+        bikashFields.style.display = 'none';
+        quantityInput.value = 1;
+        updatePrice();
+        // Reset payment option to default
+        paymentOptions.forEach(o => o.classList.remove('active'));
+        document.querySelector('.payment-option[data-payment="cod"]').classList.add('active');
+        codDetails.classList.add('active');
+        bkashDetails.classList.remove('active');
+    }
+
+    // Initialize price
+    updatePrice();
 </script>
 
 </body>
