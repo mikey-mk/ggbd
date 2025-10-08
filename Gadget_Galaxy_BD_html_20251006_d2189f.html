@@ -209,6 +209,18 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Additional styles for error handling */
+        .error-message {
+            color: var(--warning);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-error {
+            border-color: var(--warning) !important;
+        }
     </style>
 </head>
 <body>
@@ -492,13 +504,19 @@
                     <h3 class="order-title">ডেলিভারি তথ্য দিন</h3>
                     <form id="orderFormNew" class="order-form">
                         <input type="text" id="customer-name" placeholder="আপনার সম্পূর্ণ নাম" required>
+                        <div class="error-message" id="name-error">নাম অবশ্যই দিতে হবে</div>
+                        
                         <input type="tel" id="customer-phone" placeholder="ফোন নম্বর (১১ ডিজিট)" pattern="[0-9]{11}" required>
+                        <div class="error-message" id="phone-error">সঠিক ফোন নম্বর দিন (১১ ডিজিট)</div>
+                        
                         <input type="text" id="customer-address" placeholder="আপনার পূর্ণ ঠিকানা" required>
+                        <div class="error-message" id="address-error">ঠিকানা অবশ্যই দিতে হবে</div>
 
                         <!-- Only show Bkash fields if bKash is selected -->
                         <div id="bikash-fields" style="display:none;">
                             <input type="text" id="bkash-number-input" placeholder="বিকাশ নম্বর (ঐচ্ছিক)">
-                            <input type="text" id="transaction-id" placeholder="ট্রানজেকশন আইডি" required>
+                            <input type="text" id="transaction-id" placeholder="ট্রানজেকশন আইডি">
+                            <div class="error-message" id="transaction-error">ট্রানজেকশন আইডি দিতে হবে</div>
                         </div>
 
                         <div class="loading-spinner" id="loading-spinner"></div>
@@ -521,6 +539,15 @@
     </div>
 </div>
 
+<!-- Error Popup -->
+<div class="popup-overlay" id="errorPopup">
+    <div class="popup-box">
+        <div class="popup-icon" style="color: var(--warning);">⚠️</div>
+        <h3>দুঃখিত!</h3>
+        <p id="error-message">আপনার অর্ডার জমা দেওয়ার সময় একটি সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।</p>
+        <button class="confirm-order-btn" onclick="closeErrorPopup()">ঠিক আছে</button>
+    </div>
+</div>
 
 <footer>
     <div class="container">
@@ -600,7 +627,7 @@
 
     });
 
-    // NEW ORDER FORM SCRIPT
+    // NEW ORDER FORM SCRIPT - UPDATED WITH YOUR WEB APP URL
     const paymentOptions = document.querySelectorAll('.payment-option');
     const codDetails = document.getElementById('cod-details');
     const bkashDetails = document.getElementById('bikash-details');
@@ -610,6 +637,12 @@
     const priceEl = document.getElementById('price');
     const quantityInput = document.getElementById('quantity');
     const unitPrice = 1300; // price per product
+
+    // Error elements
+    const nameError = document.getElementById('name-error');
+    const phoneError = document.getElementById('phone-error');
+    const addressError = document.getElementById('address-error');
+    const transactionError = document.getElementById('transaction-error');
 
     paymentOptions.forEach(option => {
         option.addEventListener('click', () => {
@@ -653,76 +686,145 @@
 
     const form = document.getElementById('orderFormNew');
     const popup = document.getElementById('thankYouPopup');
+    const errorPopup = document.getElementById('errorPopup');
+    const errorMessage = document.getElementById('error-message');
     const loadingSpinner = document.getElementById('loading-spinner');
     const submitBtn = document.getElementById('submit-btn');
+
+    // Form validation
+    function validateForm() {
+        let isValid = true;
+        
+        // Reset errors
+        nameError.style.display = 'none';
+        phoneError.style.display = 'none';
+        addressError.style.display = 'none';
+        transactionError.style.display = 'none';
+        
+        document.getElementById('customer-name').classList.remove('form-error');
+        document.getElementById('customer-phone').classList.remove('form-error');
+        document.getElementById('customer-address').classList.remove('form-error');
+        document.getElementById('transaction-id').classList.remove('form-error');
+        
+        // Name validation
+        const name = document.getElementById('customer-name').value.trim();
+        if (!name) {
+            nameError.style.display = 'block';
+            document.getElementById('customer-name').classList.add('form-error');
+            isValid = false;
+        }
+        
+        // Phone validation
+        const phone = document.getElementById('customer-phone').value.trim();
+        const phoneRegex = /^01[3-9]\d{8}$/;
+        if (!phone || !phoneRegex.test(phone)) {
+            phoneError.style.display = 'block';
+            document.getElementById('customer-phone').classList.add('form-error');
+            isValid = false;
+        }
+        
+        // Address validation
+        const address = document.getElementById('customer-address').value.trim();
+        if (!address) {
+            addressError.style.display = 'block';
+            document.getElementById('customer-address').classList.add('form-error');
+            isValid = false;
+        }
+        
+        // Transaction ID validation for bKash
+        const paymentMethod = document.querySelector('.payment-option.active').dataset.payment;
+        if (paymentMethod === 'bikash') {
+            const transactionIdValue = document.getElementById('transaction-id').value.trim();
+            if (!transactionIdValue) {
+                transactionError.style.display = 'block';
+                document.getElementById('transaction-id').classList.add('form-error');
+                isValid = false;
+            }
+        }
+        
+        return isValid;
+    }
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
+        // Validate form
+        if (!validateForm()) {
+            return;
+        }
+        
         // Show loading spinner
         loadingSpinner.style.display = 'block';
         submitBtn.disabled = true;
+        submitBtn.textContent = 'অর্ডার জমা দেওয়া হচ্ছে...';
         
         // Get form data
-        const name = document.getElementById('customer-name').value;
-        const phone = document.getElementById('customer-phone').value;
-        const address = document.getElementById('customer-address').value;
+        const name = document.getElementById('customer-name').value.trim();
+        const phone = document.getElementById('customer-phone').value.trim();
+        const address = document.getElementById('customer-address').value.trim();
         const quantity = parseInt(quantityInput.value);
         const price = unitPrice * quantity;
         const paymentMethod = document.querySelector('.payment-option.active').dataset.payment;
-        const bkashNumber = paymentMethod === 'bikash' ? document.getElementById('bkash-number-input').value : 'N/A';
-        const transactionIdValue = paymentMethod === 'bikash' ? document.getElementById('transaction-id').value : 'N/A';
+        const bkashNumber = paymentMethod === 'bikash' ? document.getElementById('bkash-number-input').value.trim() : 'N/A';
+        const transactionIdValue = paymentMethod === 'bikash' ? document.getElementById('transaction-id').value.trim() : 'N/A';
         
         // Get current date
         const now = new Date();
         const date = now.toLocaleDateString('en-GB');
+        const time = now.toLocaleTimeString('en-GB');
         
-        // Prepare data for Google Sheets (matching your sheet columns)
-        const formData = {
-            name: name,
-            phoneNumber: phone,
-            address: address,
-            quantity: quantity,
-            bkashNumber: bkashNumber,
-            transactionId: transactionIdValue,
-            price: price
-        };
+        // Prepare data for Google Sheets
+        const formData = new FormData();
+        formData.append('timestamp', `${date} ${time}`);
+        formData.append('name', name);
+        formData.append('phone', phone);
+        formData.append('address', address);
+        formData.append('product', "Baseus 20W Dual Port Fast Charger");
+        formData.append('quantity', quantity);
+        formData.append('totalPrice', price);
+        formData.append('paymentMethod', paymentMethod);
+        formData.append('bkashNumber', bkashNumber);
+        formData.append('transactionId', transactionIdValue);
+        formData.append('status', "Pending");
         
         try {
-            // Send data to Google Sheets using Google Apps Script
-            await submitToGoogleSheets(formData);
+            // YOUR UPDATED WEB APP URL
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyRK9HbM4IPO2yZfAy4Zx7RN-JuRZuvH7G66LpXgtxlH_bp0hFDJeFNzku6dUFUCmMX/exec';
             
-            // Show success popup
-            popup.style.display = 'flex';
+            console.log('Sending data to Google Sheets...');
+            
+            const response = await fetch(scriptURL, {
+                method: 'POST',
+                body: formData
+            });
+            
+            console.log('Response received:', response);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const result = await response.json();
+            console.log('Result from Google Apps Script:', result);
+            
+            if (result.result === 'success') {
+                // Show success popup
+                popup.style.display = 'flex';
+            } else {
+                throw new Error(result.error || 'Unknown error from server');
+            }
+            
         } catch (error) {
             console.error('Error submitting form:', error);
-            alert('দুঃখিত, আপনার অর্ডার জমা দেওয়ার সময় একটি সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
+            errorMessage.textContent = 'দুঃখিত, আপনার অর্ডার জমা দেওয়ার সময় একটি সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন। ত্রুটি: ' + error.message;
+            errorPopup.style.display = 'flex';
         } finally {
             // Hide loading spinner
             loadingSpinner.style.display = 'none';
             submitBtn.disabled = false;
+            submitBtn.textContent = '✅ অর্ডার কনফার্ম করুন';
         }
     });
-
-    // Function to submit data to Google Sheets
-    async function submitToGoogleSheets(data) {
-        // Updated with your Google Apps Script Web App URL
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxNSWA4hMiADdYjZBEJcIptNHysX1cWVzXqgX2mi2xwWdWv2_hoH9EZhyG4z2RQ-K-HmQ/exec';
-        
-        const response = await fetch(scriptURL, {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        
-        return response.json();
-    }
 
     function closePopup() {
         popup.style.display = 'none';
@@ -735,6 +837,21 @@
         document.querySelector('.payment-option[data-payment="cod"]').classList.add('active');
         codDetails.classList.add('active');
         bkashDetails.classList.remove('active');
+        
+        // Reset error states
+        nameError.style.display = 'none';
+        phoneError.style.display = 'none';
+        addressError.style.display = 'none';
+        transactionError.style.display = 'none';
+        
+        document.getElementById('customer-name').classList.remove('form-error');
+        document.getElementById('customer-phone').classList.remove('form-error');
+        document.getElementById('customer-address').classList.remove('form-error');
+        document.getElementById('transaction-id').classList.remove('form-error');
+    }
+
+    function closeErrorPopup() {
+        errorPopup.style.display = 'none';
     }
 
     // Initialize price
